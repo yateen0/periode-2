@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Choice Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .option {
+      margin-bottom: 10px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz over Opleiding Software developer</h1>
+  <form id="quiz-form">
+    <div class="question" id="question1">
+      <p>1. is wiskundige kennis nodig voor deze opleiding?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q1"  value="Ja"> Ja</li>
+        <li class="option"><input type="radio" name="q1" value="Nee"> Nee</li>
+        
+      </ul>
+    </div>
+    <div class="question" id="question2">
+      <p>2. is er een stageperiode van langer dan 6 maanden in deze opleiding?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q2" value="Ja">Ja</li>
+        <li class="option"><input type="radio" name="q2" value="Nee"> Nee</li>
+
+      </ul>
+    </div>
+    <div class="question" id="question3">
+      <p>3. Leer je de programmeertaal JavaScript in deze opleiding?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q3" value="Ja"> Ja</li>
+        <li class="option"><input type="radio" name="q3" value="Nee"> Nee</li>
+      </ul>
+    </div>
+    <div class="question" id="question4">
+      <p>4. Krijg je de kans om samen te werken in deze opleiding? </p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q4" value="Ja"> Ja </li>
+        <li class="option"><input type="radio" name="q4" value="Nee"> Nee </li>
+      </ul>
+    </div>
+    <div class="question" id="question5">
+      <p>5. wordt er gebruik gemaakt van populaire ontwikkelingssoftware zoals Visual Studio Code?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q5" value="Ja"> Ja </li>
+        <li class="option"><input type="radio" name="q5" value="Nee"> Nee </li>
+      </ul>
+    </div>
+    <div class="question" id="question6">
+      <p>6. leer je tijdens de opleiding de programmeertaal HTML? </p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q6" value="Ja"> Ja</li>
+        <li class="option"><input type="radio" name="q6" value="Nee"> Nee</li>
+      </ul>
+    </div>
+    <div class="question" id="question7">
+      <p>7. Krijg je rekenen als vak bij deze opleiding? </p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q7" value="Ja"> Ja</li>
+        <li class="option"><input type="radio" name="q7" value="Ja"> Ja</li>
+      </ul>
+    </div>
+    <div class="question" id="question8">
+      <p>8. vallen games onder Software?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q8" value="Ja"> Ja</li>
+        <li class="option"><input type="radio" name="q8" value="Nee"> Nee</li>
+      </ul>
+    </div>
+    <div class="question" id="question9">
+      <p>9.duurt de opleiding officieel langer dan 4 jaar?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q9" value="Ja"> Ja</li>
+        <li class="option"><input type="radio" name="q9" value="Nee"> Nee</li>
+      </ul>
+    </div>
+    <div class="question" id="question10">
+      <p>10. wat doet programmeertaal CSS?</p>
+      <ul class="options">
+        <li class="option"><input type="radio" name="q10" value="tekst"> tekst schrijven</li>
+        <li class="option"><input type="radio" name="q10" value="opmaak"> website mooi maken</li>
+        
+      </ul>
+    </div>
+
+   
+
+    <button type="button" onclick="submitQuiz()">Submit</button>
+  </form>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  function submitQuiz() {
+    const answers = {
+      q1: "Ja", 
+      q2: "Nee",
+      q3: "Ja",
+      q4: "Ja",
+      q5: "Ja",
+      q6: "Ja",
+      q7: "Ja",
+      q8: "Ja",
+      q9: "Nee",
+      q10: "opmaak",
+    };
+
+    let score = 0;
+
+    for (let i = 1; i <= 10; i++) {
+      const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+
+      if (selectedOption) {
+        const userAnswer = selectedOption.value;
+
+        if (userAnswer === answers[`q${i}`]) {
+          score++;
+        }
+      }
+    }
+
+    const resultContainer = document.getElementById('result');
+    resultContainer.textContent = `Your score: ${score} out of 10`;
+  }
+</script>
+
+</body>
+</html>
