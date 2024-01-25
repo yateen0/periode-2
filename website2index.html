@@ -1,15 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> homepagina 
+<head></head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">''
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>home pagina  </title>
-</head> 
-<body>
+    <title>home pagina</title>
+    </head>
+<body class="home">
 
+<div class="countdownclock">
+<div>
+<p id="days">00</p>
+<span>days</span>
+</div>
+
+<div>
+<p id="hours">00</p>
+<span>hours</span>
+</div>
+
+<div>
+<p id="minutes">00</p>
+<span>minutes</span>
+</div>
+
+<div>
+<p id="seconds">00</p>
+<span>seconds</span>
+</div>
+
+</div>
+
+<div class="tekst">
+<h1>welkom <span>op de open</span> dag!!! </h1>
+</div>
+
+<script>
+var countdowndate = new Date("jan 26, 2024 14:00:00").getTime();
+var x = setInterval(function(){
+var now =  new Date().getTime();
+var distance = countdowndate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById ("days").innerHTML = days;
+document.getElementById ("hours").innerHTML = hours;
+document.getElementById ("minutes").innerHTML = minutes;
+document.getElementById ("seconds").innerHTML = seconds;
     
- 
-    hier is de home pagina van de website 
+if(distance <0){
+clearInterval(x);
+document.getElementById ("days").innerHTML =   "00";
+document.getElementById ("hours").innerHTML =  "00";
+document.getElementById ("minutes").innerHTML = "00";
+document.getElementById ("seconds").innerHTML = "00";
+
+
+
+}
+},1000);
+</script>
+
+
+<header class="header">
+
+    <nav class="navbar">
+        <img src="logo.JPG" alt="" class="logonav">
+        <a href="registratiepaginaindex.html">registreren</a>
+        <a href="quiz2.html">quiz</a>
+        <a href="https://www.techniekcollegerotterdam.nl/aanmelden/studie">aanmelden</a>
+        <a href="https://www.techniekcollegerotterdam.nl/kom-in-contact">contact</a>
+    </nav>
+
+</header>
+
+
+
+
 </body>
-</html>
+</html> 
+dit is de nieuwste versie 
